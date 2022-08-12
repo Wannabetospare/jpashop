@@ -27,14 +27,18 @@ public class MemberRepositoryTest {
     @Rollback(false)
     public void testMember() throws Exception {
         // given
+        //  새로운 멤버 객체 생성, id는 자동생성, 멤버이름 세팅
         Member member = new Member();
         member.setUsername("memberA");
 
         // when
+        // 생성한 멤버를 리퍼지토리에 저장
         Long saveId = memberRepository.save(member);
+        // 위에서 생성한 id 값으로 리퍼지토리에서 멤버를 찾음
         Member findMember = memberRepository.find(saveId);
 
         // then
+        // 저장한 멤버값과 찾는 멤버값이 같은지 확인, jpa 가 동일성을 보장해주기 때문에 같다.(주소x, 내용o)
         Assertions.assertThat(findMember.getId()).isEqualTo(member.getId());
         Assertions.assertThat(findMember.getUsername()).isEqualTo(member.getUsername());
         Assertions.assertThat(findMember).isEqualTo(member); //JPA 엔티티 동일성 보장

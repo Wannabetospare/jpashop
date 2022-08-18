@@ -21,7 +21,7 @@ public class Member {
     private String name;
 
     @Embedded
-    private Address adrress;
+    private Address address;
 
 
 
@@ -29,12 +29,11 @@ public class Member {
     private List<Order> orders = new ArrayList<>();
 
 
+    public void setAddress(Address address) {
+        this.address = address;
+    }
 
-
-
-
-
-
-
-
+    public Address getAddress() {
+        return address;
+    }
 }

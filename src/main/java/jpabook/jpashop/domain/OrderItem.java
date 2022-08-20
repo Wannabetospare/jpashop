@@ -12,15 +12,18 @@ import javax.persistence.*;
 @Getter
 public class OrderItem {
 
+    // 기본키 매핑
     @Id
     @GeneratedValue
     @Column(name = "order_item_id")
     private Long id;
 
+    // 다대일 연관관계, 지연로딩, 조인컬럼으로 외래키 매핑
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "item_id")
     private Item item; // 주문 상품
 
+    // 다대일 연관관계, 지연로딩, 조인컬럼으로 외래키 매핑
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "order_id")
     private Order order; // 주문

@@ -11,22 +11,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE) // 싱글테이블 전략
 @DiscriminatorColumn(name = "dtype")
 @Getter
 @Setter
 public abstract class Item {
 
+    // 기본키 매핑
     @Id
     @GeneratedValue
     @Column(name = "item_id")
     private Long id;
 
-    private String name;
-    private int price;
-    private int stockQuantity;
+    private String name; // 이름
 
-    @ManyToMany(mappedBy = "items")
+    private int price; // 가격
+    private int stockQuantity; // 재고(수량)
+
+    @ManyToMany(mappedBy = "items") // 읽기전용, 주인아님
     private List<Category> categories = new ArrayList<>();
 
 

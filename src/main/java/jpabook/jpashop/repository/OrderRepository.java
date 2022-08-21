@@ -13,6 +13,8 @@ import javax.persistence.criteria.*;
 import java.util.ArrayList;
 import java.util.List;
 
+
+// 리퍼지토리는 JPA 를 직접 사용한다 ( = 엔티티 매니저를 사용한다 )
 @Repository
 @RequiredArgsConstructor
 public class OrderRepository {

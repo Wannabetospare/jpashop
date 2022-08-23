@@ -21,9 +21,9 @@ import javax.persistence.PersistenceContext;
 import static org.junit.Assert.*;
 
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
-@Transactional
+@RunWith(SpringRunner.class) // Junit4 테스트
+@SpringBootTest // 스프링부트 통합테스트
+@Transactional // 트랜잭션 저장
 public class OrderServiceTest {
 
     @PersistenceContext
@@ -55,7 +55,7 @@ public class OrderServiceTest {
         assertEquals("주문 수량만큼 재고가 줄어야 한다.", 8, item.getStockQuantity());
     }
 
-    @Test(expected = NotEnoughStockException.class)
+    @Test(expected = NotEnoughStockException.class) // 설정한 오류값이 나오기를 기대한다. 오류가 떠야 테스트 성공이다.
     public void 상품주문_재고수량초과() throws Exception {
         //Given
         Member member = createMember();
@@ -87,6 +87,7 @@ public class OrderServiceTest {
         assertEquals("주문이 취소된 상품은 그만큼 재고가 증가해야 한다.", 10, item.getStockQuantity());
     }
 
+    // 임의의 멤버를 하나 생성한다.
     private Member createMember() {
         Member member = new Member();
         member.setName("회원1");

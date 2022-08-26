@@ -40,7 +40,8 @@ public class ItemRepository {
     // 이름 - 아이템을 전부 찾는 메서드
     // 매개변수 - x
     // 동작 - 엔티티 매니저로 제이쿼리를 만들어서 아이템 클래스를 리스트로 뽑아 가져온다.
-    // 반환값 - 동작으로 가져온 아이템 값들을 리스트형으로 반환한다.
+    // 반환값 - 동작으로 가져온 아이템 값들을 리스트형으로 반환한다.\
+
     public List<Item> findAll(){
 
         return em.createQuery("select i from Item i", Item.class).getResultList();

@@ -45,7 +45,7 @@ public class OrderRepository {
     // 이름 - 주문 전부 찾기
     // 매개변수 - 오더 검색 클래스
     // 동작 - 엔티티매니저의 쿼리를 사용해서 회원을 찾아 조인한다.
-    // 반환값 -
+    // 반환값 - 오더 리스트
     public List<Order> findAll(OrderSearch orderSearch) {
 
         CriteriaBuilder cb = em.getCriteriaBuilder();

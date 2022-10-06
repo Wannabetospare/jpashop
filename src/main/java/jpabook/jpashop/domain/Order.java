@@ -77,7 +77,7 @@ public class Order {
     // 매개변수 - 멤버, 딜리버리, 오더아이템
     // 동작 - 오더를 생성하고, 매개변수를 넣어준다. 오더아이템을 여러개일 수 있기때문에 향상된 for문으로 만들어주고, 오더 상태와 시간을 넣어준다.
     // 반환값 - 매개변수들로 세팅된 오더값을 반화한다.
-    public static Order creatOrder(Member member, Delivery delivery, OrderItem... orderItems){
+    public static Order createOrder(Member member, Delivery delivery, OrderItem... orderItems){
         Order order = new Order();
         order.setMember(member);
         order.setDelivery(delivery);

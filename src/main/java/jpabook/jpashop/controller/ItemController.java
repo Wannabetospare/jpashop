@@ -39,12 +39,15 @@ public class ItemController {
     @PostMapping(value = "/items/new")
     public String create(BookForm form) {
         Book book = new Book();
+
         book.setName(form.getName());
         book.setPrice(form.getPrice());
         book.setStockQuantity(form.getStockQuantity());
         book.setAuthor(form.getAuthor());
         book.setIsbn(form.getIsbn());
+
         itemService.saveItem(book);
+
         return "redirect:/items";
     }
 
@@ -57,6 +60,7 @@ public class ItemController {
     // 반환 - items/itemsList 로 모델 값을 문자형으로 전달한다.
     @GetMapping(value = "/items")
     public String list(Model model) {
+
         List<Item> items = itemService.findItems();
         model.addAttribute("items", items);
         return "items/itemList";

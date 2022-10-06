@@ -6,6 +6,7 @@ import lombok.Setter;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,7 +27,7 @@ public class Member {
     private String name;
 
 
-    // 회원의 주소값을 임베디드타입으로 매핑 ( 시티,스트릿,집코드 )
+    // 회원의 주소값을 임베디드 타입으로 매핑 ( 시티,스트릿,집코드 )
     @Embedded
     private Address address;
 
